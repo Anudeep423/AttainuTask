@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
-// const carRoutes = require("./Routes/carRouter")
 const userRoutes = require("./View/userRoutes")
+require("dotenv").config();
 
 const app = express();
 
@@ -10,7 +10,7 @@ const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 mongoose
-  .connect("mongodb+srv://Anudeep123:12345678aA$@cluster0.ni9vp.mongodb.net/Attainu?retryWrites=true&w=majority", {
+  .connect( process.env.DATABASE , {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true

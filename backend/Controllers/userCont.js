@@ -1,5 +1,6 @@
 var jwt = require("jsonwebtoken");
 const User = require("../Model/User")
+require("dotenv").config();
 
 exports.signup = ( req,res) => {
      console.log(req.body);
@@ -33,7 +34,7 @@ exports.signin = (req, res) => {
 
   
       //create token
-      const token = jwt.sign({ _id: req.body.userName }, "qwdqwd");
+      const token = jwt.sign({ _id: req.body.userName }, process.env.SECRET);
       //put token in cookie
       res.cookie("token", token, { expire: new Date() + 9999 });
   
